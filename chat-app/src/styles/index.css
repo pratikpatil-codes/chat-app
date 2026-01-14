@@ -1,0 +1,84 @@
+/* Global styles and CSS variables */
+:root {
+  /* Color palette - warm and inviting */
+  --bg-primary: #faf8f6;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #f0ede8;
+  
+  --text-primary: #2d2a27;
+  --text-secondary: #6b6762;
+  --text-muted: #9c9691;
+  
+  --accent-primary: #d97757;
+  --accent-secondary: #e89b7f;
+  --accent-hover: #c56345;
+  
+  --bubble-own: #2d2a27;
+  --bubble-other: #ffffff;
+  
+  --border-color: #e6e2dd;
+  --shadow-sm: 0 2px 8px rgba(45, 42, 39, 0.06);
+  --shadow-md: 0 4px 16px rgba(45, 42, 39, 0.08);
+  --shadow-lg: 0 8px 32px rgba(45, 42, 39, 0.12);
+  
+  /* Typography */
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Playfair Display', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Smooth transitions for all interactive elements */
+button, input, textarea {
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-tertiary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}

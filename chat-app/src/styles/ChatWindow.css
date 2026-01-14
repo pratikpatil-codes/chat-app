@@ -1,0 +1,179 @@
+.chat-window {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  background: var(--bg-primary);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Empty state */
+.empty-state {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 20px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease forwards;
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.empty-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+
+.empty-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.empty-subtext {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+/* Messages list */
+.messages-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Individual message */
+.message {
+  display: flex;
+  animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Own messages align right */
+.message-own {
+  justify-content: flex-end;
+}
+
+/* Other users' messages align left */
+.message-other {
+  justify-content: flex-start;
+}
+
+.message-content {
+  max-width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* Username label for other users */
+.message-user {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  padding-left: 16px;
+  letter-spacing: 0.3px;
+}
+
+/* Message bubble */
+.message-bubble {
+  padding: 12px 18px;
+  border-radius: 18px;
+  position: relative;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.message-bubble:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+/* Own messages - dark background */
+.message-own .message-bubble {
+  background: var(--bubble-own);
+  color: white;
+  border-bottom-right-radius: 4px;
+}
+
+/* Other users' messages - light background */
+.message-other .message-bubble {
+  background: var(--bubble-other);
+  color: var(--text-primary);
+  border-bottom-left-radius: 4px;
+  border: 1px solid var(--border-color);
+}
+
+/* Message text */
+.message-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  word-wrap: break-word;
+  margin-bottom: 4px;
+}
+
+/* Timestamp */
+.message-time {
+  font-size: 0.7rem;
+  opacity: 0.6;
+  display: block;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.message-own .message-time {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.message-other .message-time {
+  color: var(--text-muted);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chat-window {
+    padding: 16px;
+  }
+
+  .message-content {
+    max-width: 80%;
+  }
+
+  .messages-list {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .message-content {
+    max-width: 85%;
+  }
+
+  .message-bubble {
+    padding: 10px 14px;
+  }
+
+  .message-text {
+    font-size: 0.9rem;
+  }
+}
